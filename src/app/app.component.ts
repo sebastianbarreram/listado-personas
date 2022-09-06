@@ -13,11 +13,7 @@ export class AppComponent {
     new Persona('Diana', 'Marín'),
     new Persona('Humberto', 'Barrera'),
   ];
-  nombreInput: string = '';
-  apellidoInput: string = '';
-
-  agregarPersona(): void {
-    if (this.nombreInput != '' && this.apellidoInput != '')
-      this.personas.push(new Persona(this.nombreInput, this.apellidoInput));
+  personaAgregada(persona: Persona): void {
+    this.personas.push(persona);
   }
 }
