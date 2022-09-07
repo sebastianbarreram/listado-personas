@@ -4,6 +4,7 @@
         <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control"
             [(ngModel)]="apellidoInput" required>
         <button type="submit" style="cursor: pointer">+</button>
-
+        <button *ngIf="index!=undefined" type="submit" style="cursor: pointer" class="redButton"
+            (click)="eliminarPersona()">-</button>
     </form>
 </div>
