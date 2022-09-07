@@ -98,3 +98,8 @@ html {
     padding-bottom: 6px;
     border-width: 0;
   }
+
+  .error{
+    display: flex;
+    justify-content: center;
+  }

@@ -8,13 +8,15 @@ import { PersonaComponent } from './personas/persona/persona.component';
 import { FormularioComponent } from './personas/formulario/formulario.component';
 import { LoggingService } from './services/LoggingService.service';
 import { PersonasComponent } from './personas/personas.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonaComponent,
     FormularioComponent,
-    PersonasComponent
+    PersonasComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
