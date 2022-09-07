@@ -18,4 +18,15 @@ export class PersonasService {
     this.logginService.enviarMensajePorconsola('Se agregó al arreglo');
     this.personas.push(persona);
   }
+
+  encontrarPersona(index: number): Persona {
+    let persona: Persona = this.personas[index];
+    return persona;
+  }
+
+  modificarPersona(index: number, persona: Persona) {
+    let newPersona = this.personas[index];
+    newPersona.nombre = persona.nombre;
+    newPersona.apellido = persona.apellido;
+  }
 }
