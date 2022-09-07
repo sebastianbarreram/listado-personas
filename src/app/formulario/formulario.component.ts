@@ -9,9 +9,9 @@ import { PersonasService } from '../services/personas.service';
   styleUrls: ['./formulario.component.css'],
 })
 export class FormularioComponent {
-  @ViewChild('nombreInput') nombre: ElementRef = {} as ElementRef;
-  @ViewChild('apellidoInput') apellido: ElementRef = {} as ElementRef;
   newPersona: Persona = new Persona('', '');
+  nombreInput: string = '';
+  apellidoInput: string = '';
 
   constructor(
     private logginService: LoggingService,
@@ -23,14 +23,8 @@ export class FormularioComponent {
   }
 
   agregarPersona(): void {
-    if (
-      this.nombre.nativeElement.value != '' &&
-      this.apellido.nativeElement.value != ''
-    )
-      this.newPersona = new Persona(
-        this.nombre.nativeElement.value,
-        this.apellido.nativeElement.value
-      );
+    if (this.nombreInput != '' && this.apellidoInput != '')
+      this.newPersona = new Persona(this.nombreInput, this.apellidoInput);
     this.logginService.enviarMensajePorconsola(
       'Enviamos persona con nombre: ' +
         this.newPersona.nombre +
