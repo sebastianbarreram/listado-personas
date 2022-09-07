@@ -1,8 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Persona } from '../persona.model';
 import { LoggingService } from '../services/LoggingService.service';
 import { PersonasService } from '../services/personas.service';
@@ -20,7 +16,11 @@ export class FormularioComponent {
   constructor(
     private logginService: LoggingService,
     private personasService: PersonasService
-  ) {}
+  ) {
+    this.personasService.saludar.subscribe((indice: number) =>
+      alert('El índice es: ' + indice)
+    );
+  }
 
   agregarPersona(): void {
     if (
@@ -37,6 +37,6 @@ export class FormularioComponent {
         ' apellido: ' +
         this.newPersona.apellido
     );
-    this.personasService.agregarPersona(this.newPersona)
+    this.personasService.agregarPersona(this.newPersona);
   }
 }

@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Persona } from '../persona.model';
 import { LoggingService } from './LoggingService.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PersonasService {
   personas: Persona[] = [
@@ -11,8 +11,9 @@ export class PersonasService {
     new Persona('Diana', 'Marín'),
     new Persona('Humberto', 'Barrera'),
   ];
-  constructor(private logginService: LoggingService) { }
-  
+  saludar = new EventEmitter<number>();
+  constructor(private logginService: LoggingService) {}
+
   agregarPersona(persona: Persona): void {
     this.logginService.enviarMensajePorconsola('Se agregó al arreglo');
     this.personas.push(persona);
