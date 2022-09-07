@@ -1,26 +1,26 @@
 import {
   Component,
   ElementRef,
-  EventEmitter,
-  Output,
   ViewChild,
 } from '@angular/core';
 import { Persona } from '../persona.model';
 import { LoggingService } from '../services/LoggingService.service';
+import { PersonasService } from '../services/personas.service';
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css'],
-  // providers: [LoggingService],
 })
 export class FormularioComponent {
-  @Output() personaCreada = new EventEmitter<Persona>();
   @ViewChild('nombreInput') nombre: ElementRef = {} as ElementRef;
   @ViewChild('apellidoInput') apellido: ElementRef = {} as ElementRef;
   newPersona: Persona = new Persona('', '');
 
-  constructor(private logginService: LoggingService) {}
+  constructor(
+    private logginService: LoggingService,
+    private personasService: PersonasService
+  ) {}
 
   agregarPersona(): void {
     if (
@@ -37,6 +37,6 @@ export class FormularioComponent {
         ' apellido: ' +
         this.newPersona.apellido
     );
-    this.personaCreada.emit(this.newPersona);
+    this.personasService.agregarPersona(this.newPersona)
   }
 }
