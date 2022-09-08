@@ -6,18 +6,21 @@ import { PersonasService } from '../services/personas.service';
 @Component({
   selector: 'app-personas',
   templateUrl: './personas.component.html',
-  styleUrls: ['./personas.component.css']
+  styleUrls: ['./personas.component.css'],
 })
 export class PersonasComponent implements OnInit {
-
   personas: Persona[] = [];
 
-  constructor(private personasService: PersonasService, private router:Router ) {}
+  constructor(
+    private personasService: PersonasService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.personas = this.personasService.personas;
+    // this.personas = this.personasService.personas;
+    this.personas = this.personasService.obtenerPersonas();
   }
-  agregar(){
-    this.router.navigate(["personas/agregar"])
+  agregar() {
+    this.router.navigate(['personas/agregar']);
   }
 }
