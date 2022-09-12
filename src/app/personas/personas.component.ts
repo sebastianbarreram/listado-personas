@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Persona } from '../persona.model';
+import { LoginService } from '../services/login.service';
 import { PersonasService } from '../services/personas.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class PersonasComponent implements OnInit {
 
   constructor(
     private personasService: PersonasService,
-    private router: Router
+    private router: Router,
+    public loginService: LoginService
   ) {}
 
   ngOnInit(): void {

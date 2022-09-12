@@ -12,7 +12,9 @@ import { ErrorComponent } from './error/error.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { AngularFireModule, FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     FormularioComponent,
     PersonasComponent,
     ErrorComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,8 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
   providers: [
     LoggingService,
     { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+    AngularFireModule,
+    LoginService
   ],
   bootstrap: [AppComponent],
 })
