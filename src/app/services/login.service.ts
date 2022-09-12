@@ -25,9 +25,13 @@ export class LoginService {
     return this.token;
   }
   SignOut() {
-		return this.afAuth.signOut().then(() => {
-			window.alert("se ha cerrado la sesión");
-			this.router.navigate(['login']);
-		});
-	}
+    return this.afAuth.signOut().then(() => {
+      window.alert('se ha cerrado la sesión');
+      this.token = "";
+      this.router.navigate(['login']);
+    });
+  }
+  estaAutenticado() {
+    return this.token != "";
+  }
 }

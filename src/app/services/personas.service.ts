@@ -56,6 +56,12 @@ export class PersonasService {
 
   encontrarPersona(index: number): Persona {
     let persona: Persona = this.personas[index];
+    console.log(index);
+    console.log(this.personas[index]);
+    
+    
+    console.log(persona);
+    
     return persona;
   }
 

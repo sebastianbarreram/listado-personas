@@ -3,9 +3,6 @@
 </div>
 
 <router-outlet></router-outlet>
-<button type="button"
-value="Log out"
-(click)="loginService.SignOut()">Salir</button>
 <div class="box">
     <app-persona *ngFor="let personaElemento of personas; let i=index" [persona]="personaElemento" [indice]="i">
     </app-persona>

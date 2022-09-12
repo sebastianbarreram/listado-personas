@@ -4,12 +4,14 @@ import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
 import { FormularioComponent } from './personas/formulario/formulario.component';
 import { PersonasComponent } from './personas/personas.component';
+import { LoginGuardianService } from './services/login-guardian.service';
 
 const routes: Routes = [
   { path: '', component: PersonasComponent },
   {
     path: 'personas',
     component: PersonasComponent,
+    canActivate: [LoginGuardianService],
     children: [
       { path: 'agregar', component: FormularioComponent },
       { path: ':id', component: FormularioComponent },
